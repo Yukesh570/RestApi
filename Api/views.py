@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
+
 from .serializers import TaskSerializer
 from .models import Task
 # Create your views here.
@@ -24,3 +26,16 @@ def taskcreate(request):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+@api_view(['DELETE'])
+def taskdelete(request,pk):
+    tasks = Task.objects.get(id=pk)
+    serializer= TaskSerializer(tasks, many=False)
+    tt=serializer
+    tasks.delete()  
+    
+
+    return Response(tt.data)
+    
+
+    
