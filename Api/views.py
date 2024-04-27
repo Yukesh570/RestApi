@@ -7,6 +7,17 @@ from rest_framework import status
 from .serializers import TaskSerializer
 from .models import Task
 # Create your views here.
+
+@api_view(['GET'])
+def apiOverview(request):
+    api_url ={
+        'list':'/task-list/',
+        'Detail view':'/task-detail/<str:pk>',
+        'Create':'/task-create/',
+        'Update':'/task-update<str:pk>/',
+        'Delete':'/task-delete<str:pk>/',
+
+    }
 @api_view(['GET'])
 def tasklist(request):
     tasks = Task.objects.all()
@@ -36,6 +47,15 @@ def taskdelete(request,pk):
     
 
     return Response(tt.data)
+
+@api_view(['PUT'])
+def taskupdate(request,pk):
+    tasks = Task.objects.get(id=pk)
+
+    serializer= TaskSerializer(tasks, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
     
 
     
