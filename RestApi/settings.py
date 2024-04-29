@@ -137,3 +137,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+
+# //yukesh
+# //ujwal
+
+# // 1) yukesh ma ujwal ko branch merge garyo 
+
+# //new branch name=> yukesh-merge-ujwal =>   when merge is succesful
+
+# yukesh branch ma yukesh-merge-ujwal lai merge garchau
+
+
+# //main  1.verified yukesh + 2. verified ujwal   => ready for production branch
+
+# //production   1.verified yukesh + 2. verified ujwal   => ready for production branch
+
+# //staging  1.ontesting yukesh + 2. ontesting ujwal   => ready for production branch
